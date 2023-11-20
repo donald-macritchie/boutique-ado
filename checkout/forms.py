@@ -11,7 +11,7 @@ class OrderForm(forms.ModelForm):
                   'county',)
 
 
-    def __init__(slef, *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         """
         Ad placeholders and classes, remove auto-generated
         labels and set autofocus on first fields
