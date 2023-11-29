@@ -31,7 +31,8 @@ SECRET_KEY = 'django-insecure-7g8&4ae5z%ytptzd6x_%hax@qzbu+x$y$i)9zy0mc80i&!4#3#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-donald-macritchie-boutiq-6juyhuae8a.us2.codeanyapp.com', 'boutique-ado-dm.herokuapp.com']
+ALLOWED_HOSTS = ['8000-donald-macritchie-boutiq-6juyhuae8a.us2.codeanyapp.com',
+                 'boutique-ado-dm-810fdc1539b6.herokuapp.com']
 
 
 # Application definition
@@ -136,7 +137,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 
 
 # Password validation
