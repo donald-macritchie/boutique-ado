@@ -15,6 +15,8 @@ from pathlib import Path
 import os
 if os.path.isfile("env.py"):
     import env
+import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,7 +31,7 @@ SECRET_KEY = 'django-insecure-7g8&4ae5z%ytptzd6x_%hax@qzbu+x$y$i)9zy0mc80i&!4#3#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-donald-macritchie-boutiq-6juyhuae8a.us2.codeanyapp.com']
+ALLOWED_HOSTS = ['8000-donald-macritchie-boutiq-6juyhuae8a.us2.codeanyapp.com', 'boutique-ado-dm.heerokuapp.com', 'localhost']
 
 
 # Application definition
@@ -122,12 +124,18 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
 
 
 # Password validation
